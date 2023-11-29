@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/tabby.min.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.3.433">
+
+  <meta name="dcterms.date" content="2023-12-07">
+  <title>Variation in fine phonetic detail modulates the outcome of sound change</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    margin-bottom: 0.5rem;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-image="img/jylland.jpg" data-background-opacity="0.4" data-background-size="contain" class="quarto-title-block center">
+  <h1 class="title">Variation in fine phonetic detail modulates the outcome of sound change</h1>
+  <p class="subtitle">The case of stop lenition in Jutland Danish</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Rasmus Puggaard-Rode 
+</div>
+</div>
+</div>
+
+  <p class="date">2023-12-07</p>
+</section>
+<section id="road-map" class="slide level2">
+<h2>Road map</h2>
+<ul>
+<li class="fragment"><p>The problem</p></li>
+<li class="fragment"><p>Danish stop gradation</p></li>
+<li class="fragment"><p>Research questions</p></li>
+<li class="fragment"><p>Methods and materials</p>
+<ul>
+<li class="fragment">The corpus</li>
+<li class="fragment">The stats</li>
+</ul></li>
+<li class="fragment"><p>Results</p></li>
+<li class="fragment"><p>Discussion and conclusions</p></li>
+</ul>
+<p><img data-src="img/stopsign.jpg" class="absolute" style="top: 200px; right: 0px; width: 450px; "></p>
+</section>
+<section id="the-problem" class="slide level2">
+<h2>The problem</h2>
+<ul>
+<li class="fragment"><p>Multiple degrees of freedom in the phonetic realization of laryngeal contrasts</p>
+<ul>
+<li class="fragment">The “neat” voiced–unaspirated–aspirated distinction looks more like an unbroken continuum</li>
+</ul></li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="lisker1964">Lisker &amp; Abramson (<a href="#/references" role="doc-biblioref" onclick="">1964</a>)</span>; <span class="citation" data-cites="ladd2011">Ladd (<a href="#/references" role="doc-biblioref" onclick="">2011</a>)</span>; <span class="citation" data-cites="chen2011">Chen (<a href="#/references" role="doc-biblioref" onclick="">2011</a>)</span>; <span class="citation" data-cites="beckman2013">Beckman, Jessen &amp; Ringen (<a href="#/references" role="doc-biblioref" onclick="">2013</a>)</span>; <span class="citation" data-cites="kirby2023">Kirby &amp; Tan (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span></p>
+</div></aside></section>
+<section id="section" class="slide level2">
+<h2></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/cho-1999-vot.png" width="900"></p>
+</figure>
+</div>
+
+<aside><div>
+<p><span class="citation" data-cites="cho1999">Cho &amp; Ladefoged (<a href="#/references" role="doc-biblioref" onclick="">1999</a>)</span></p>
+</div></aside></section>
+<section id="the-problem-1" class="slide level2">
+<h2>The problem</h2>
+<div>
+<ul>
+<li><p>Multiple degrees of freedom in the phonetic realization of laryngeal contrasts</p>
+<ul>
+<li>The “neat” voiced–unaspirated–aspirated distinction looks more like an unbroken continuum</li>
+<li>Languages vary w.r.t. voicing and <em>F</em><sub>0</sub> perturbations in unpredictable ways</li>
+<li>Do these details impact higher-order linguistic structures?</li>
+</ul></li>
+</ul>
+</div>
+
+<aside><div>
+<p><span class="citation" data-cites="lisker1964">Lisker &amp; Abramson (<a href="#/references" role="doc-biblioref" onclick="">1964</a>)</span>; <span class="citation" data-cites="ladd2011">Ladd (<a href="#/references" role="doc-biblioref" onclick="">2011</a>)</span>; <span class="citation" data-cites="chen2011">Chen (<a href="#/references" role="doc-biblioref" onclick="">2011</a>)</span>; <span class="citation" data-cites="beckman2013">Beckman, Jessen &amp; Ringen (<a href="#/references" role="doc-biblioref" onclick="">2013</a>)</span>; <span class="citation" data-cites="kirby2023">Kirby &amp; Tan (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span></p>
+</div></aside></section>
+<section id="the-problem-2" class="slide level2">
+<h2>The problem</h2>
+<ul>
+<li class="fragment"><p><em>Laryngeal realism</em>: [±voice] is insufficient for two-way laryngeal contrasts</p>
+<ul>
+<li class="fragment">Regressive voicing assimilation common in ‘true voice’ languages</li>
+<li class="fragment">Progressive aspiration assimilation common in ‘aspiration’ languages</li>
+<li class="fragment">Debuccalization found in ‘aspiration’ languages</li>
+</ul></li>
+<li class="fragment"><p>Does phonology care about anything smaller?</p></li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="iverson1995">Iverson &amp; Salmons (<a href="#/references" role="doc-biblioref" onclick="">1995</a>)</span>; <span class="citation" data-cites="lombardi1999">Lombardi (<a href="#/references" role="doc-biblioref" onclick="">1999</a>)</span>; <span class="citation" data-cites="honeybone2002">Honeybone (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>; <span class="citation" data-cites="honeybone2005">Honeybone (<a href="#/references" role="doc-biblioref" onclick="">2005</a>)</span>; cf. <span class="citation" data-cites="cyran2011">Cyran (<a href="#/references" role="doc-biblioref" onclick="">2011</a>)</span></p>
+</div></aside></section>
+<section id="the-problem-3" class="slide level2">
+<h2>The problem</h2>
+<ul>
+<li class="fragment"><p>We have good reason to assume the answer is <strong>yes</strong> from other domains</p>
+<ul>
+<li class="fragment">Velar palatalization before front vowels is the result of small differences in burst noise characteristics</li>
+<li class="fragment">Lenition predominantly targets codas because word-final information is more contextually predictable, and as such, hypoarticulated</li>
+</ul></li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="lindblom1990">Lindblom (<a href="#/references" role="doc-biblioref" onclick="">1990</a>)</span>; <span class="citation" data-cites="ohala1992">Ohala (<a href="#/references" role="doc-biblioref" onclick="">1992</a>)</span>; <span class="citation" data-cites="guion1998">Guion (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span>; <span class="citation" data-cites="hall2018">Hall et al. (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>; <span class="citation" data-cites="wedel2019">Wedel, Ussishkin &amp; King (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span></p>
+</div></aside></section>
+<section id="the-problem-4" class="slide level2">
+<h2>The problem</h2>
+<ul>
+<li class="fragment"><p>Enter: Danish stop gradation!</p>
+<ul>
+<li class="fragment">Phonological process which targets stops</li>
+<li class="fragment">Outcome known to vary geographically</li>
+<li class="fragment">Stop phonetics <em>also</em> known to vary geographically</li>
+<li class="fragment">Relevant varieties documented in a huge legacy corpus</li>
+</ul></li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="bennike1898">Bennike &amp; Kristensen (<a href="#/references" role="doc-biblioref" onclick="">1898–1912</a>)</span>; <span class="citation" data-cites="skautrup1944">Skautrup (<a href="#/references" role="doc-biblioref" onclick="">1944–1970</a>)</span>; <span class="citation" data-cites="puggaard2021">Puggaard (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span>; <span class="citation" data-cites="puggaardrode2023_diss">Puggaard-Rode (<a href="#/references" role="doc-biblioref" onclick="">2023a</a>)</span>; <span class="citation" data-cites="puggaardrode2023_fpca">Puggaard-Rode (<a href="#/references" role="doc-biblioref" onclick="">2023b</a>)</span></p>
+</div></aside></section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/mapzoom.gif" height="500"></p>
+</figure>
+</div>
+</section>
+<section id="section-3" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+<section id="danish-stop-gradation" class="slide level2">
+<h2>Danish stop gradation</h2>
+<ul>
+<li class="fragment"><p>Danish phonology makes reference to <strong>strong</strong> and <strong>weak</strong> prosodic positiosn</p>
+<ul>
+<li class="fragment"><strong>Strong</strong> positions (SP) are onsets before a full vowels</li>
+<li class="fragment"><strong>Weak</strong> positions (WP) are codas and onsets before a neutral vowel, i.e.&nbsp;[ə] or [ɐ], as well as [i] in some morphemes</li>
+</ul></li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="rischel1970">Rischel (<a href="#/references" role="doc-biblioref" onclick="">1970</a>)</span></p>
+</div></aside></section>
+<section id="danish-stop-gradation-1" class="slide level2">
+<h2>Danish stop gradation</h2>
+<ul>
+<li class="fragment"><p>Modern Standard Danish (MSD) shows alternations between</p>
+<ul>
+<li class="fragment">Aspirated stops in SP, unaspirated stops in WP</li>
+<li class="fragment">Unaspirated stops in SP, semivowels in WP</li>
+</ul></li>
+<li class="fragment"><p>This is often interpreted as an active phonological process</p>
+<ul>
+<li class="fragment">Colleagues and I have argued against this</li>
+</ul></li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="uldall1936">Uldall (<a href="#/references" role="doc-biblioref" onclick="">1936</a>)</span>; <span class="citation" data-cites="hjelmslev1951">Hjelmslev (<a href="#/references" role="doc-biblioref" onclick="">1951</a>)</span>; <span class="citation" data-cites="rischel1970">Rischel (<a href="#/references" role="doc-biblioref" onclick="">1970</a>)</span>; <span class="citation" data-cites="horslund2022">Horslund, Puggaard-Rode &amp; Jørgensen (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span></p>
+</div></aside></section>
+<section id="danish-stop-gradation-2" class="slide level2 smaller">
+<h2>Danish stop gradation</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="kable-table">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">/p t k/</td>
+<td style="text-align: left;">→</td>
+<td style="text-align: left;">[pʰ tʰ kʰ]</td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;">SP</td>
+<td style="text-align: left;"><em>skalpere</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">[p t k]</td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;">WP</td>
+<td style="text-align: left;"><em>skalp</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">/b/</td>
+<td style="text-align: left;">→</td>
+<td style="text-align: left;">[p]</td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;">SP</td>
+<td style="text-align: left;"><em>købte</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">[p ~ ʊ̯]</td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;">WP</td>
+<td style="text-align: left;"><em>købe</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">/d/</td>
+<td style="text-align: left;">→</td>
+<td style="text-align: left;">[t]</td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;">SP</td>
+<td style="text-align: left;"><em>validere</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">[ɤ̯]</td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;">WP</td>
+<td style="text-align: left;"><em>valid</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">/g/</td>
+<td style="text-align: left;">→</td>
+<td style="text-align: left;">[k]</td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;">SP</td>
+<td style="text-align: left;"><em>bagte</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">[ɪ̯]</td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;">WP, _ [-back, -high]</td>
+<td style="text-align: left;"><em>bage</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">[ʊ̯]</td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;">WP, _ [+back, -high]</td>
+<td style="text-align: left;"><em>bagværk</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Ø</td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;">WP, _ [+high]</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="danish-stop-gradation-variation" class="slide level2">
+<h2>Danish stop gradation: variation</h2>
+<ul>
+<li class="fragment">Stop gradation affected almost the entire Danish-speaking area, but the precise outcomes differed</li>
+<li class="fragment">Thanks to a historically strong tradition of dialectology, this variability has long been well-described</li>
+</ul>
+</section>
+<section id="danish-stop-gradation-variation-1" class="slide level2">
+<h2>Danish stop gradation: variation</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/dialectatlas.png" width="400"></p>
+</figure>
+</div>
+
+<aside><div>
+<p><span class="citation" data-cites="bennike1898">Bennike &amp; Kristensen (<a href="#/references" role="doc-biblioref" onclick="">1898–1912</a>)</span></p>
+</div></aside></section>
+<section id="danish-stop-gradation-variation-in-b" class="slide level2">
+<h2>Danish stop gradation: variation in /b/</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/p-dev.png" width="400"></p>
+</figure>
+</div>
+
+<aside><div>
+<p><span class="citation" data-cites="puggaardrode2023_diss">Puggaard-Rode (<a href="#/references" role="doc-biblioref" onclick="">2023a</a>)</span></p>
+</div></aside></section>
+<section id="danish-stop-gradation-variation-in-g" class="slide level2">
+<h2>Danish stop gradation: variation in /g/</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/k-dev.png" width="400"></p>
+</figure>
+</div>
+
+<aside><div>
+<p><span class="citation" data-cites="puggaardrode2023_diss">Puggaard-Rode (<a href="#/references" role="doc-biblioref" onclick="">2023a</a>)</span></p>
+</div></aside></section>
+<section id="danish-stop-gradation-variation-in-d" class="slide level2">
+<h2>Danish stop gradation: variation in /d/</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/t-dev.png" width="400"></p>
+</figure>
+</div>
+
+<aside><div>
+<p><span class="citation" data-cites="puggaardrode2023_diss">Puggaard-Rode (<a href="#/references" role="doc-biblioref" onclick="">2023a</a>)</span></p>
+</div></aside></section>
+<section id="danish-stop-gradation-variation-2" class="slide level2">
+<h2>Danish stop gradation: variation</h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
+<section id="research-questions" class="slide level2">
+<h2>Research questions</h2>
+<ul>
+<li class="fragment"><p>Broad RQ:</p>
+<ul>
+<li class="fragment">Are sound changes sensitive to the phonetic details of laryngeal contrast beyond broad descriptive features like ‘aspiration’ and ‘true voice’?</li>
+</ul></li>
+<li class="fragment"><p>Narrow RQ:</p>
+<ul>
+<li class="fragment">Is the variation in stop gradation patterns in Jutland Danish limited to WP, or are there meaningful correlates in SP?</li>
+</ul></li>
+</ul>
+</section>
+<section id="hypotheses" class="slide level2">
+<h2>Hypotheses</h2>
+<ul>
+<li class="fragment"><p>Stop gradation led to an increase in aperture almost across the board</p></li>
+<li class="fragment"><p>The outcomes of stop gradation were affected by the precise implementation of the laryngeal contrast</p>
+<ul>
+<li class="fragment">The degree of sonority is reflected in the ‘phonetic sonority’ of stops</li>
+<li class="fragment">I.e., more voicing, less aspiration = more sonorous</li>
+</ul></li>
+</ul>
+</section>
+<section id="hypotheses-1" class="slide level2">
+<h2>Hypotheses</h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<section id="hypotheses-2" class="slide level2">
+<h2>Hypotheses</h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
+<section id="the-data" class="slide level2">
+<h2>The data</h2>
+<ul>
+<li class="fragment"><p>A bit of background</p>
+<ul>
+<li class="fragment">The past century has been very hard on regional variation in Denmark</li>
+<li class="fragment">The traditional dialects of Danish are mostly moribund or extinct</li>
+</ul></li>
+<li class="fragment"><p>Tape recordings were gathered from elderly dialect speakers in the early 1970s</p></li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="arboeandersen1981">Arboe Andersen (<a href="#/references" role="doc-biblioref" onclick="">1981</a>)</span>; <span class="citation" data-cites="kristiansen2003">Kristiansen (<a href="#/references" role="doc-biblioref" onclick="">2003</a>)</span>; <span class="citation" data-cites="pedersen2003">Pedersen (<a href="#/references" role="doc-biblioref" onclick="">2003</a>)</span>; <span class="citation" data-cites="goldshtein2019">Goldshtein &amp; Puggaard (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>; cf. <span class="citation" data-cites="maegaard2019">Maegaard &amp; Monka (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span></p>
+</div></aside></section>
+<section id="the-data-1" class="slide level2">
+<h2>The data</h2>
+<ul>
+<li class="fragment"><p>The corpus consists of</p>
+<ul>
+<li class="fragment">525 sociolinguistic interviews</li>
+<li class="fragment">370 hours of speech data</li>
+<li class="fragment">Almost entirely unused…and un-annotated :-(</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-data-2" class="slide level2">
+<h2>The data</h2>
+<ul>
+<li class="fragment"><p>This study</p>
+<ul>
+<li class="fragment"><p>213 different recordings</p></li>
+<li class="fragment"><p>49 women, 164 men</p></li>
+<li class="fragment"><p>Mean age = 77.4 years</p>
+<ul>
+<li class="fragment">I.e., this is roughly the same generation captured in the dialect maps of <span class="citation" data-cites="bennike1898">Bennike &amp; Kristensen (<a href="#/references" role="doc-biblioref" onclick="">1898–1912</a>)</span></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="the-data-3" class="slide level2">
+<h2>The data</h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
+<section id="acoustic-analysis" class="slide level2">
+<h2>Acoustic analysis</h2>
+<ul>
+<li class="fragment"><p>First step: finding the stops</p>
+<ul>
+<li class="fragment">By…</li>
+<li class="fragment">…listening through the recordings -_-</li>
+<li class="fragment">And noting the rough locations of each stop until 50 /p t k/ tokens were found</li>
+<li class="fragment">Noting the locations of /b d g/ tokens in that same time span</li>
+</ul></li>
+</ul>
+</section>
+<section id="acoustic-analysis-1" class="slide level2">
+<h2>Acoustic analysis</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="kable-table">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Phoneme</th>
+<th style="text-align: left;">Number of tokens</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">/p/</td>
+<td style="text-align: left;">1,386</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">/t/</td>
+<td style="text-align: left;">5,169</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">/k/</td>
+<td style="text-align: left;">4,095</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">/p t k/ total</td>
+<td style="text-align: left;">10,650</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">/b/</td>
+<td style="text-align: left;">2,212</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">/d/</td>
+<td style="text-align: left;">2,369</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">/g/</td>
+<td style="text-align: left;">2,273</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">/b d g/ total</td>
+<td style="text-align: left;">6,854</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="acoustic-analysis-2" class="slide level2">
+<h2>Acoustic analysis</h2>
+<ul>
+<li class="fragment">Positive voice onset time was measured manually in /p t k/</li>
+</ul>
+</section>
+<section id="acoustic-analysis-3" class="slide level2">
+<h2>Acoustic analysis</h2>
+<div>
+<ul>
+<li>Positive voice onset time was measured manually in /p t k/</li>
+</ul>
+</div>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
+<section id="acoustic-analysis-voiced-or-not-voiced" class="slide level2">
+<h2>Acoustic analysis: voiced or not voiced?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
+</div>
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-11-2.png" width="960"></p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-12-1.png" width="960"></p>
+</div>
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-12-2.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="stats" class="slide level2">
+<h2>Stats</h2>
+<ul>
+<li class="fragment"><p>Generalized additive mixed models</p>
+<ul>
+<li class="fragment">Very useful for modeling non-linear effects</li>
+<li class="fragment">Omnipresent in linguistics in the past half decade</li>
+</ul></li>
+</ul>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<p><img data-src="img/gamm_ts.png" class="absolute" style="top: 0px; left: 0px; width: 480px; "> <img data-src="img/gamm_mri.png" class="absolute" style="top: 0px; right: 0px; width: 350px; "></p>
+<p><img data-src="img/gamm_eeg.png" class="absolute" style="left: 75px; bottom: 85px; width: 300px; "></p>
+<p><img data-src="img/gamm_spectrum.png" class="absolute" style="bottom: 75px; right: 0px; width: 420px; "></p>
+
+<aside><div>
+<p><span class="citation" data-cites="wieling2018">Wieling (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>; <span class="citation" data-cites="voeten2019">Voeten &amp; Levelt (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>; <span class="citation" data-cites="carignan2020">Carignan et al. (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>; <span class="citation" data-cites="puggaardrode2022_fosr">Puggaard-Rode (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span></p>
+</div></aside></section>
+<section id="stats-1" class="slide level2">
+<h2>Stats</h2>
+<div>
+<ul>
+<li><p>Generalized additive mixed models</p>
+<ul>
+<li>Very useful for modeling non-linear effects</li>
+<li>Omnipresent in linguistics in the past half decade</li>
+</ul></li>
+<li><p>In this case, <strong>spatial</strong> GAMMs</p></li>
+</ul>
+</div>
+</section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/gamm_geo.png" width="450"></p>
+</figure>
+</div>
+
+<aside><div>
+<p><span class="citation" data-cites="wieling2011">Wieling, Nerbonne &amp; Baayen (<a href="#/references" role="doc-biblioref" onclick="">2011</a>)</span></p>
+</div></aside></section>
+<section id="stats-model-structure" class="slide level2">
+<h2>Stats: model structure</h2>
+<ul>
+<li class="fragment"><p><strong>Dependent variables</strong></p>
+<ul>
+<li class="fragment"><p>Voice onset time</p>
+<ul>
+<li class="fragment">Scaled <em>t</em> distribution</li>
+</ul></li>
+<li class="fragment"><p>Presence or absence of voicing</p>
+<ul>
+<li class="fragment">Binomial distribution</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="stats-model-structure-1" class="slide level2">
+<h2>Stats: model structure</h2>
+<ul>
+<li class="fragment"><p>Two-dimensional smooth modeling geographical coordinates</p></li>
+<li class="fragment"><p><strong>Independent variables</strong></p>
+<ul>
+<li class="fragment">Place of articulation</li>
+<li class="fragment">Stress</li>
+<li class="fragment">Speaker gender</li>
+<li class="fragment">Preceding boundary</li>
+<li class="fragment">Palatalization</li>
+<li class="fragment">Vowel features (roundness, backness, height)</li>
+</ul></li>
+</ul>
+</section>
+<section id="stats-model-structure-2" class="slide level2">
+<h2>Stats: model structure</h2>
+<ul>
+<li class="fragment">Independent variables were coded with sum or Helmert contrasts</li>
+<li class="fragment">By-speaker <strong>random slopes</strong> for all independent variables</li>
+<li class="fragment">Fitted in R with <code>mgcv</code></li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="wood2017_gam">Wood (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>; <span class="citation" data-cites="wood2022">Wood (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span>; <span class="citation" data-cites="schad2020">Schad et al. (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span></p>
+</div></aside></section>
+<section id="results-vot" class="slide level2">
+<h2>Results: VOT</h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"></section>
+<section id="results-vot-1" class="slide level2">
+<h2>Results: VOT</h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section>
+<section id="results-vot-2" class="slide level2">
+<h2>Results: VOT</h2>
+<p><img data-src="img/gamm_vot_highp.gif" class="absolute" style="left: 240px; bottom: 65px; height: 550px; "></p>
+</section>
+<section id="results-vot-3" class="slide level2">
+<h2>Results: VOT</h2>
+<p><img data-src="img/gamm_vot_lowp.gif" class="absolute" style="left: 240px; bottom: 65px; height: 550px; "></p>
+</section>
+<section id="results-voicing" class="slide level2">
+<h2>Results: voicing</h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch"></section>
+<section id="results-voicing-1" class="slide level2">
+<h2>Results: voicing</h2>
+<p><img data-src="img/voizoom.gif" class="absolute" style="left: 25px; bottom: 60px; height: 525px; "></p>
+</section>
+<section id="results-voicing-2" class="slide level2">
+<h2>Results: voicing</h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"></section>
+<section id="results-voicing-3" class="slide level2">
+<h2>Results: voicing</h2>
+<p><img data-src="img/gamm_voi_highp.gif" class="absolute" style="left: 250px; bottom: 57px; height: 550px; "></p>
+</section>
+<section id="results-voicing-4" class="slide level2">
+<h2>Results: voicing</h2>
+<p><img data-src="img/gamm_voi_lowp.gif" class="absolute" style="left: 250px; bottom: 57px; height: 550px; "></p>
+</section>
+<section id="discussion-regional-variation" class="slide level2">
+<h2>Discussion: regional variation</h2>
+<ul>
+<li class="fragment"><p>In MSD, voicelessness in /b d g/ is maintained with glottal spreading</p>
+<ul>
+<li class="fragment">This serves to block intervocalic voicing</li>
+<li class="fragment">It is unlikely that (Northern) Jutlandic varieties have this gesture</li>
+<li class="fragment">For some speakers, voicing is even found in absolute initial position, which requires extra effort</li>
+</ul></li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="fischerjorgensen1974">Fischer-Jørgensen &amp; Hirose (<a href="#/references" role="doc-biblioref" onclick="">1974</a>)</span>; <span class="citation" data-cites="hutters1985">Hutters (<a href="#/references" role="doc-biblioref" onclick="">1985</a>)</span>; <span class="citation" data-cites="sole2018">Solé (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>; <span class="citation" data-cites="puggaardrode2022_voicing">Puggaard-Rode, Horslund &amp; Jørgensen (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span></p>
+</div></aside></section>
+<section id="discussion-regional-variation-1" class="slide level2">
+<h2>Discussion: regional variation</h2>
+<ul>
+<li class="fragment"><p>The observed patterns suggest that stop gradation = increase in aperture in /b d g/</p>
+<ul>
+<li class="fragment"><p>If /b d g/ are voiced at high rates, the result should be a voiced fricative or an approximant</p></li>
+<li class="fragment"><p>If /b d g/ are largely voiceless, the results should be a voiceless fricative</p>
+<ul>
+<li class="fragment">…and we might expect increased prominence of aspiration in /p t k/</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="discussion-regional-variation-2" class="slide level2">
+<h2>Discussion: regional variation</h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-22-1.png" width="960" class="r-stretch"></section>
+<section id="discussion-regional-variation-3" class="slide level2">
+<h2>Discussion: regional variation</h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-23-1.png" width="960" class="r-stretch"></section>
+<section id="discussion-modern-standard-danish" class="slide level2">
+<h2>Discussion: Modern Standard Danish</h2>
+<ul>
+<li class="fragment"><p>MSD provides a counterexample!</p>
+<ul>
+<li class="fragment">Laryngeal contrast is highly aspiration-oriented</li>
+<li class="fragment">Stop gradation outcomes is highly sonorous</li>
+<li class="fragment">Why?</li>
+</ul></li>
+</ul>
+</section>
+<section id="discussion-modern-standard-danish-1" class="slide level2">
+<h2>Discussion: Modern Standard Danish</h2>
+<ul>
+<li class="fragment"><p>Contrast in MSD used to be more voicing-oriented</p>
+<ul>
+<li class="fragment">More voicing during the first stages of stop gradation</li>
+<li class="fragment">Subsequent drift towards more aspiration, less voicing in SP</li>
+<li class="fragment">This severed any synchronic connection between SP and WP allophones</li>
+<li class="fragment">Jutland stop gradation has more hallmarks of an active phonological process</li>
+</ul></li>
+</ul>
+</section>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<ul>
+<li class="fragment"><p>Uncovered systematic, highly gradient patterns of variability in VOT and voicing rates in Jutland Danish</p></li>
+<li class="fragment"><p>These patterns have direct parallels in the outcome of stop gradation in <em>other prosodic positions</em></p></li>
+<li class="fragment"><p>This suggests that fine phonetic detail directly impacts sound change/phonological processes</p>
+<ul>
+<li class="fragment">Broadly defined features are insufficient!</li>
+</ul></li>
+</ul>
+</section>
+<section id="tak-for-opmærksomheden" class="slide level2 smaller">
+<h2>Tak for opmærksomheden!</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/cat.jpg" height="450"></p>
+</figure>
+</div>
+</div><div class="column" style="width:60%;">
+<div>
+<p><a href="https://rpuggaardrode.github.io">rpuggaardrode.github.io</a> <br> <a href="mailto:r.puggaard@phonetik.uni-muenchen.de">r.puggaard@phonetik.uni-muenchen.de</a> <br> <a href="https://twitter.com/RPuggaardRode">@rpuggaardrode</a></p>
+</div>
+</div>
+</div>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+<div class="footer footer-default">
+<p>Lancaster University Phonetics Lab</p>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-arboeandersen1981" class="csl-entry" role="listitem">
+Arboe Andersen, Torben. 1981. Dialektbånd og databehandling. <em>Ord &amp; Sag</em> 1, 11–18.
+</div>
+<div id="ref-beckman2013" class="csl-entry" role="listitem">
+Beckman, Jill, Michael Jessen &amp; Catherine Ringen. 2013. Empirical evidence for laryngeal features. Aspirating vs. <span class="nocase">true</span> voice languages. <em>Journal of Linguistics</em> 49(2), 259–284. doi:<a href="https://doi.org/10.1017/S0022226712000424">10.1017/S0022226712000424</a>.
+</div>
+<div id="ref-bennike1898" class="csl-entry" role="listitem">
+Bennike, Valdemar &amp; Marius Kristensen. 1898–1912. <em>Kort over de danske folkemål med forklaringer</em>. Copenhagen: Gyldendalske Boghandel.
+</div>
+<div id="ref-carignan2020" class="csl-entry" role="listitem">
+Carignan, Christopher, Phil Hoole, Esther Kunay, Marianne Pouplier, Arun Joseph, Dirk Voit, Jens Frahm &amp; Jonathan Harrington. 2020. Analyzing speech in both time and space. Generalized additive mixed models can uncover systematic patterns of variation in vocal tract shape in real-time <span>MRI</span>. <em>Laboratory Phonology</em> 11(2). doi:<a href="https://doi.org/10.5334/labphon.214">10.5334/labphon.214</a>.
+</div>
+<div id="ref-chen2011" class="csl-entry" role="listitem">
+Chen, Yiya. 2011. How does phonology guide phonetics in segment-f0 interaction? <em>Journal of Phonetics</em> 39(4), 612–625. doi:<a href="https://doi.org/10.1016/j.wocn.2011.04.001">10.1016/j.wocn.2011.04.001</a>.
+</div>
+<div id="ref-cho1999" class="csl-entry" role="listitem">
+Cho, Taehong &amp; Peter Ladefoged. 1999. Variation and universals in <span>VOT</span>. Evidence from 18 languages. <em>Journal of Phonetics</em> 27(2), 207–229. doi:<a href="https://doi.org/10.1006/jpho.1999.0094">10.1006/jpho.1999.0094</a>.
+</div>
+<div id="ref-cyran2011" class="csl-entry" role="listitem">
+Cyran, Eugeniusz. 2011. Laryngeal realism and laryngeal relativism. <span>Two</span> voicing systems in <span>Polish</span>? <em>Studies in Polish Linguistics</em> 6, 45–80.
+</div>
+<div id="ref-fischerjorgensen1974" class="csl-entry" role="listitem">
+Fischer-Jørgensen, Eli &amp; Hajime Hirose. 1974. A preliminary electromyographic study of labial and laryngeal muscles in <span>Danish</span> stop consonant production. <em>Status Report on Speech Research</em> 39/40, 231–253.
+</div>
+<div id="ref-goldshtein2019" class="csl-entry" role="listitem">
+Goldshtein, Yonatan &amp; Rasmus Puggaard. 2019. Overblik over danske dialektoptagelser. <em>Ord &amp; Sag</em> 39, 18–28.
+</div>
+<div id="ref-guion1998" class="csl-entry" role="listitem">
+Guion, Susan Guignard. 1998. The role of perception in sound change of velar palatalization. <em>Phonetica</em> 55(1), 18–52. doi:<a href="https://doi.org/10.1159/000028423">10.1159/000028423</a>.
+</div>
+<div id="ref-hall2018" class="csl-entry" role="listitem">
+Hall, Kathleen Currie, Elizabeth Hume, T. Florian Jaeger &amp; Andrew B. Wedel. 2018. The role of predictability in shaping phonological patterns. <em>Linguistics Vanguard</em> 4. doi:<a href="https://doi.org/10.1515/lingvan-2017-0027">10.1515/lingvan-2017-0027</a>.
+</div>
+<div id="ref-hjelmslev1951" class="csl-entry" role="listitem">
+Hjelmslev, Louis. 1951. Grundtræk af det danske udtrykssystem med særligt henblik på stødet. <em>Selskab for Nordisk Filologi. Årsberetning for</em> 1948/49/50, 12–21.
+</div>
+<div id="ref-honeybone2002" class="csl-entry" role="listitem">
+Honeybone, Patrick. 2002. <em>Germanic obstruent lenition. Some mutual implications of theoretical and historical phonology</em>. PhD dissertation, <span class="nocase">University of Newcastle upon Tyne</span>.
+</div>
+<div id="ref-honeybone2005" class="csl-entry" role="listitem">
+Honeybone, Patrick. 2005. Diachronic evidence in segmental phonology. The case of obstruent laryngeal specifications. In Marc van Oostendorp &amp; Jeroen van de Weijer (eds.), <em>The internal organization of phonological segments</em> (Studies in Generative Grammar 77), 318–351. Berlin &amp; New York: Mouton de Gruyter. doi:<a href="https://doi.org/10.1515/9783110890402.317">10.1515/9783110890402.317</a>.
+</div>
+<div id="ref-horslund2022" class="csl-entry" role="listitem">
+Horslund, Camilla Søballe, Rasmus Puggaard-Rode &amp; Henrik Jørgensen. 2022. A phonetically-based phoneme analysis of the <span>Danish</span> consonant system. <em>Acta Linguistica Hafniensia</em> 54(1), 73–105. doi:<a href="https://doi.org/10.1080/03740463.2021.2022866">10.1080/03740463.2021.2022866</a>.
+</div>
+<div id="ref-hutters1985" class="csl-entry" role="listitem">
+Hutters, Birgit. 1985. Vocal fold adjustments in aspirated and unaspirated stops in <span>Danish</span>. <em>Phonetica</em> 42(1), 1–24. doi:<a href="https://doi.org/10.1159/000261734">10.1159/000261734</a>.
+</div>
+<div id="ref-iverson1995" class="csl-entry" role="listitem">
+Iverson, Gregory K. &amp; Joseph C. Salmons. 1995. Aspiration and laryngeal representation in <span>Germanic</span>. <em>Phonology</em> 12(3), 369–396. doi:<a href="https://doi.org/10.1017/S0952675700002566">10.1017/S0952675700002566</a>.
+</div>
+<div id="ref-kirby2023" class="csl-entry" role="listitem">
+Kirby, James P. &amp; Maryann Tan. 2023. Analyzing variability in closure voicing and co-intrinsic F0 in <span>Central Standard Swedish</span>. In Radek Skarnitzl &amp; Jan Volín (eds.), <em>Proceedings of the 20th <span class="nocase">International Congress of Phonetic Sciences</span></em>, 2244–2248. Prague: Guarant.
+</div>
+<div id="ref-kristiansen2003" class="csl-entry" role="listitem">
+Kristiansen, Tore. 2003. Danish. In Ana Deumart &amp; Wim Vandenbussche (eds.), <em>Germanic standardizations. Past to present</em> (Impact. Studies in Language and Society 18), 69–91. Amsterdam &amp; Philadelphia: John Benjamins. doi:<a href="https://doi.org/10.1075/impact.18.04kri">10.1075/impact.18.04kri</a>.
+</div>
+<div id="ref-ladd2011" class="csl-entry" role="listitem">
+Ladd, D. Robert. 2011. Phonetics in phonology. In John Goldsmith, Jason Riggle &amp; Alan C. L. Yu (eds.), <em>The handbook of phonological theory</em> (Blackwell Handbooks in Linguistics), 348–373. 2nd ed. Chichester: Wiley-Blackwell. doi:<a href="https://doi.org/10.1002/9781444343069.ch11">10.1002/9781444343069.ch11</a>.
+</div>
+<div id="ref-lindblom1990" class="csl-entry" role="listitem">
+Lindblom, Björn. 1990. Explaining phonetic variation. A sketch of the <span>H&amp;H</span> theory. In William J. Hardcastle &amp; Alain Marchal (eds.), <em>Speech production and speech modelling</em> (Nato Science Series d 55), 403–439. Dordrecht: Kluwer. doi:<a href="https://doi.org/10.1007/978-94-009-2037-8_16">10.1007/978-94-009-2037-8_16</a>.
+</div>
+<div id="ref-lisker1964" class="csl-entry" role="listitem">
+Lisker, Leigh &amp; Arthur S. Abramson. 1964. A cross-language study of voicing in initial stops. Acoustical measurements. <em>Word</em> 20, 384–422. doi:<a href="https://doi.org/10.1080/00437956.1964.11659830">10.1080/00437956.1964.11659830</a>.
+</div>
+<div id="ref-lombardi1999" class="csl-entry" role="listitem">
+Lombardi, Linda. 1999. Positional faithfulness and voicing assimilation in <span>Optimality Theory</span>. <em>Natural Language and Linguistic Theory</em> 17(2), 267–302. doi:<a href="https://doi.org/10.1023/A:1006182130229">10.1023/A:1006182130229</a>.
+</div>
+<div id="ref-maegaard2019" class="csl-entry" role="listitem">
+Maegaard, Marie &amp; Malene Monka. 2019. Patterns of dialect use. Language standardization at different rates. In Marie Maegaard, Malene Monka, Kristine Køhler Mortensen &amp; Andreas Candefors Stæhr (eds.), <em>Standardization as sociolinguistic change. A transversal study of three traditional dialect areas</em> (Routledge Studies in Language Change), 27–46. London &amp; New York: Routledge. doi:<a href="https://doi.org/10.4324/9780429467486-2">10.4324/9780429467486-2</a>.
+</div>
+<div id="ref-ohala1992" class="csl-entry" role="listitem">
+Ohala, John J. 1992. What’s cognitive, what’s not, in sound change. In Günter Kellerman &amp; Michael D. Morrissey (eds.), <em>Diachrony within synchrony. Language history and cognition</em> (Duisburg Papers on Research in Language and Culture 14), 309–355. Frankfurt am Main: Peter Lang.
+</div>
+<div id="ref-pedersen2003" class="csl-entry" role="listitem">
+Pedersen, Inge Lise. 2003. Traditional dialects of <span>Danish</span> and the de-dialectalization 1900–2000. <em>International Journal of the Sociology of Language</em> 159, 9–28. doi:<a href="https://doi.org/10.1515/ijsl.2003.012">10.1515/ijsl.2003.012</a>.
+</div>
+<div id="ref-puggaard2021" class="csl-entry" role="listitem">
+Puggaard, Rasmus. 2021. Modeling regional variation in voice onset time of <span>Jutlandic</span> varieties of <span>Danish</span>. In Hans Van de Velde, Nanna Haug Hilton &amp; Remco Knooihuizen (eds.), <em>Language variation. European perspectives <span>VIII</span></em> (Studies in Language Variation 25), 79–110. Amsterdam &amp; Philadelphia: John Benjamins. doi:<a href="https://doi.org/10.1075/silv.25.04pug">10.1075/silv.25.04pug</a>.
+</div>
+<div id="ref-puggaardrode2022_fosr" class="csl-entry" role="listitem">
+Puggaard-Rode, Rasmus. 2022. Analyzing time-varying spectral characteristics of speech with function-on-scalar regression. <em>Journal of Phonetics</em> 95, 101191. doi:<a href="https://doi.org/10.1016/j.wocn.2022.101191">10.1016/j.wocn.2022.101191</a>.
+</div>
+<div id="ref-puggaardrode2023_diss" class="csl-entry" role="listitem">
+Puggaard-Rode, Rasmus. 2023a. <em>Stop! Hey, what’s that sound? The representation and realization of <span>Danish</span> stops</em> (<span>LOT</span> Dissertation Series 631). Amsterdam: Netherlands Graduate School of Linguistics. doi:<a href="https://doi.org/10.48273/LOT0631">10.48273/LOT0631</a>.
+</div>
+<div id="ref-puggaardrode2023_fpca" class="csl-entry" role="listitem">
+Puggaard-Rode, Rasmus. 2023b. The /t/ release in <span>Jutland Danish</span>. Decomposing the spectrum with functional <span>PCA</span>. In Radek Skarnitzl &amp; Jan Volín (eds.), <em>Proceedings of the 20th <span class="nocase">International Congress of Phonetic Sciences</span></em>, 3262–3266. Prague: Guarant.
+</div>
+<div id="ref-puggaardrode2022_voicing" class="csl-entry" role="listitem">
+Puggaard-Rode, Rasmus, Camilla Søballe Horslund &amp; Henrik Jørgensen. 2022. The rarity of intervocalic voicing of stops in <span>Danish</span> spontaneous speech. <em>Laboratory Phonology</em> 13(11). doi:<a href="https://doi.org/10.16995/labphon.6449">10.16995/labphon.6449</a>.
+</div>
+<div id="ref-rischel1970" class="csl-entry" role="listitem">
+Rischel, Jørgen. 1970. Consonant gradation. A problem in <span>Danish</span> phonology and morphology. In Hreinn Benediktsson (ed.), <em>The <span>Nordic</span> languages and modern linguistics</em>, 460–480. Reykjavík: Vísindafélag Íslendinga.
+</div>
+<div id="ref-schad2020" class="csl-entry" role="listitem">
+Schad, Daniel J., Shravan Vasishth, Sven Hohenstein &amp; Reinhold Kliegl. 2020. How to capitalize on a priori contexts in linear (mixed) models. A tutorial. <em>Journal of Memory and Language</em> 110. doi:<a href="https://doi.org/10.1016/j.jml.2019.104038">10.1016/j.jml.2019.104038</a>.
+</div>
+<div id="ref-skautrup1944" class="csl-entry" role="listitem">
+Skautrup, Peter. 1944–1970. <em>Det danske sprogs historie</em>. Copenhagen: Gyldendal.
+</div>
+<div id="ref-sole2018" class="csl-entry" role="listitem">
+Solé, Maria-Josep. 2018. Articulatory adjustments in initial voiced stops in <span>Spanish</span>, <span>French</span> and <span>English</span>. <em>Journal of Phonetics</em> 66, 217–241. doi:<a href="https://doi.org/10.1016/j.wocn.2017.10.002">10.1016/j.wocn.2017.10.002</a>.
+</div>
+<div id="ref-uldall1936" class="csl-entry" role="listitem">
+Uldall, Hans Jörgen. 1936. The phonematics of <span>Danish</span>. In Daniel Jones &amp; Dennis Butler Fry (eds.), <em><span class="nocase">Proceedings of the 2nd International Congress of the Phonetic Sciences</span></em>, 54–57. Cambridge: Cambridge University Press.
+</div>
+<div id="ref-voeten2019" class="csl-entry" role="listitem">
+Voeten, Cesko C. &amp; Claartje Levelt. 2019. <span>ERP</span> responses to regional accent reflect two distinct processes of perceptual compensation. <em>Frontiers in Neuroscience</em> 13(546). doi:<a href="https://doi.org/10.3389/fnins.2019.00546">10.3389/fnins.2019.00546</a>.
+</div>
+<div id="ref-wedel2019" class="csl-entry" role="listitem">
+Wedel, Andrew B., Adam Ussishkin &amp; Adam King. 2019. Crosslinguistic evidence for a strong statistical universal. Phonological neutralization targets word-ends over beginnings. <em>Language</em> 95(4), 428–446. doi:<a href="https://doi.org/10.1353/lan.2019.0082">10.1353/lan.2019.0082</a>.
+</div>
+<div id="ref-wieling2018" class="csl-entry" role="listitem">
+Wieling, Martijn. 2018. Analyzing dynamic phonetic data using generalized additive mixed modeling. A tutorial focusing on articulatory differences between <span>L1</span> and <span>L2</span> speakers of <span>English</span>. <em>Journal of Phonetics</em> 70, 86–116. doi:<a href="https://doi.org/10.1016/j.wocn.2018.03.002">10.1016/j.wocn.2018.03.002</a>.
+</div>
+<div id="ref-wieling2011" class="csl-entry" role="listitem">
+Wieling, Martijn, John Nerbonne &amp; R. Harald Baayen. 2011. Quantitative social dialectology. Explaining linguistic variation geographically and socially. <em>Plos One</em> 6(9). doi:<a href="https://doi.org/10.1371/journal.pone.0023613">10.1371/journal.pone.0023613</a>.
+</div>
+<div id="ref-wood2017_gam" class="csl-entry" role="listitem">
+Wood, Simon N. 2017. <em>Generalized additive models. An introduction with <span>R</span></em> (Texts in Statistical Science). 2nd ed. Boca Raton: <span>CRC</span> Press. doi:<a href="https://doi.org/10.1201/9781315370279">10.1201/9781315370279</a>.
+</div>
+<div id="ref-wood2022" class="csl-entry" role="listitem">
+Wood, Simon N. 2022. <code>mgcv</code>. <em>Mixed GAM computation vehicle with automatic smoothness estimation</em>. Version 1.8-41. <a href="https://CRAN.R-project.org/package=mgcv">https://CRAN.R-project.org/package=mgcv</a>.
+</div>
+</div>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="index_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="index_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="index_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="index_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="index_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'smaller': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+      function tippyHover(el, contentFn) {
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        };
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          return note.innerHTML;
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

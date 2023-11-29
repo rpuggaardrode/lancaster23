@@ -1,0 +1,1116 @@
+---
+title: Variation in fine phonetic detail modulates the outcome of sound change
+subtitle: The case of stop lenition in Jutland Danish
+title-slide-attributes:
+    data-background-image: img/jylland.jpg
+    data-background-size: contain
+    data-background-opacity: '0.4'
+author: 
+  - name:
+      given: 'Rasmus'
+      family: 'Puggaard-Rode'
+date: '7 December 2023'
+format: 
+  revealjs:
+    df-print: kable
+    footer: 'Lancaster University Phonetics Lab'
+    incremental: true
+    slide-number: true
+    scrollable: false
+    theme: simple
+    transition: fade
+bibliography: references.bib
+csl: css/journal-of-linguistics.csl
+---
+
+## Road map
+
+-   The problem
+
+-   Danish stop gradation
+
+-   Research questions
+
+-   Methods and materials
+
+    -   The corpus
+    -   The stats
+
+-   Results
+
+-   Discussion and conclusions
+
+![](img/stopsign.jpg){.absolute top="200" right="0" width="450"}
+
+## The problem
+
+-   Multiple degrees of freedom in the phonetic realization of laryngeal contrasts
+
+    -   The "neat" voiced--unaspirated--aspirated distinction looks more like an unbroken continuum
+
+::: aside
+@lisker1964; @ladd2011; @chen2011; @beckman2013; @kirby2023
+:::
+
+## 
+
+![](img/cho-1999-vot.png){width="900" fig-align="center"}
+
+::: aside
+@cho1999
+:::
+
+## The problem
+
+::: nonincremental
+-   Multiple degrees of freedom in the phonetic realization of laryngeal contrasts
+
+    -   The "neat" voiced--unaspirated--aspirated distinction looks more like an unbroken continuum
+    -   Languages vary w.r.t. voicing and *F*~0~ perturbations in unpredictable ways
+    -   Do these details impact higher-order linguistic structures?
+:::
+
+::: aside
+@lisker1964; @ladd2011; @chen2011; @beckman2013; @kirby2023
+:::
+
+## The problem
+
+-   *Laryngeal realism*: \[±voice\] is insufficient for two-way laryngeal contrasts
+
+    -   Regressive voicing assimilation common in 'true voice' languages
+    -   Progressive aspiration assimilation common in 'aspiration' languages
+    -   Debuccalization found in 'aspiration' languages
+
+-   Does phonology care about anything smaller?
+
+::: aside
+@iverson1995; @lombardi1999; @honeybone2002; @honeybone2005; cf. @cyran2011
+:::
+
+## The problem
+
+-   We have good reason to assume the answer is **yes** from other domains
+
+    -   Velar palatalization before front vowels is the result of small differences in burst noise characteristics
+    -   Lenition predominantly targets codas because word-final information is more contextually predictable, and as such, hypoarticulated
+
+::: aside
+@lindblom1990; @ohala1992; @guion1998; @hall2018; @wedel2019
+:::
+
+## The problem
+
+-   Enter: Danish stop gradation!
+
+    -   Phonological process which targets stops
+    -   Outcome known to vary geographically
+    -   Stop phonetics *also* known to vary geographically
+    -   Relevant varieties documented in a huge legacy corpus
+
+::: aside
+@bennike1898; @skautrup1944; @puggaard2021; @puggaardrode2023_diss; @puggaardrode2023_fpca
+:::
+
+## 
+
+```{r}
+#| fig-height: 4.8
+
+library(tidyverse)
+library(patchwork)
+library(eurostat)
+
+geodata <- get_eurostat_geospatial(resolution = '1', nuts_level = 3)
+
+geodataDK <- geodata[geodata$CNTR_CODE=='DK',]
+
+mapEU <- ggplot() + 
+  geom_sf(data=geodata, fill='lightgrey') + 
+  geom_sf(data=geodataDK, fill='yellow') +
+  annotate(geom='text', x=7.5, y=57.5, label='This is Denmark', angle=22, 
+           color='red', fontface='bold') +
+  annotate(geom='point', x=-2.5, y=54, size=2.5, color='red') +
+  annotate(geom='text', x=-2.5, y=54.5, label='You are here', color='red',
+           fontface='bold') +
+  xlim(-5, 18) +
+  ylim(50, 60) + 
+  theme_bw() +
+  theme(panel.background=element_rect(fill='lightblue'),
+        panel.border=element_blank(),
+        panel.grid.major=element_blank(),
+        panel.grid.minor=element_blank(),
+        axis.text.y=element_blank(),
+        axis.text.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.title.x=element_blank(),
+        axis.ticks=element_blank())
+mapEU
+```
+
+## 
+
+```{r}
+#| eval: false
+
+#code for generating the map-zooming gif
+render_map <- function(w, e, s, n) {
+  mapEU <- ggplot() + 
+  geom_sf(data=geodata, fill='lightgrey') + 
+  geom_sf(data=geodataDK, fill='yellow') +
+  annotate(geom='text', x=7.5, y=57.5, label='This is Denmark', angle=22, 
+           color='red', fontface='bold') +
+  annotate(geom='point', x=-2.5, y=54, size=2.5, color='red') +
+  annotate(geom='text', x=-2.5, y=54.5, label='You are here', color='red',
+           fontface='bold') +
+  xlim(w, e) +
+  ylim(s, n) + 
+  theme_bw() +
+  theme(panel.background=element_rect(fill='lightblue'),
+        panel.border=element_blank(),
+        panel.grid.major=element_blank(),
+        panel.grid.minor=element_blank(),
+        axis.text.y=element_blank(),
+        axis.text.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.title.x=element_blank(),
+        axis.ticks=element_blank())
+  print(mapEU)
+}
+
+coord_df <- data.frame(
+  w = seq(-5, 8, length.out=50),
+  e = seq(18, 13, length.out=50),
+  s = seq(50, 54.7, length.out=50), 
+  n = seq(60, 58, length.out=50)
+)
+
+gifski::save_gif(for (i in 1:nrow(coord_df)) {
+  render_map(coord_df$w[i], coord_df$e[i], 
+             coord_df$s[i], coord_df$n[i])
+  print(paste(i, 'out of', nrow(coord_df)))
+}, gif_file='animation.gif', delay=1/25, loop=FALSE, progress=TRUE)
+```
+
+![](img/mapzoom.gif){height="500" fig-align="center"}
+
+##  {auto-animate="true"}
+
+```{r}
+#| fig-height: 4.8
+
+jut_areas <- c('Sydjylland', 'Vestjylland', 'Nordjylland', 'Østjylland')
+jutland <- geodataDK[geodataDK$NUTS_NAME %in% jut_areas,]
+restofDK <- geodataDK[!geodataDK$NUTS_NAME %in% jut_areas,]
+
+mapDK <- ggplot() + 
+  geom_sf(data=geodata, fill='lightgrey') + 
+  geom_sf(data=jutland, fill='yellow') +
+  xlim(8, 13) +
+  ylim(54.7, 58) + 
+  theme_bw() +
+  theme(panel.background=element_rect(fill='lightblue'),
+        panel.border=element_blank(),
+        panel.grid.major=element_blank(),
+        panel.grid.minor=element_blank(),
+        axis.text.y=element_blank(),
+        axis.text.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.title.x=element_blank(),
+        axis.ticks=element_blank())
+mapDK + annotate(geom='label', x=12.3, y=55.4, label='Copenhagen')
+```
+
+## Danish stop gradation
+
+-   Danish phonology makes reference to **strong** and **weak** prosodic positiosn
+
+    -   **Strong** positions (SP) are onsets before a full vowels
+    -   **Weak** positions (WP) are codas and onsets before a neutral vowel, i.e. \[ə\] or \[ɐ\], as well as \[i\] in some morphemes
+
+::: aside
+@rischel1970
+:::
+
+## Danish stop gradation
+
+-   Modern Standard Danish (MSD) shows alternations between
+
+    -   Aspirated stops in SP, unaspirated stops in WP
+    -   Unaspirated stops in SP, semivowels in WP
+
+-   This is often interpreted as an active phonological process
+
+    -   Colleagues and I have argued against this
+
+::: aside
+@uldall1936; @hjelmslev1951; @rischel1970; @horslund2022
+:::
+
+## Danish stop gradation {.smaller}
+
+```{r}
+grad <- data.frame(c=c('/p t k/', '', '/b/', '', '/d/', '', '/g/', '', '', ''),
+                   d=c('→', '', '→', '', '→', '', '→', '', '', ''),
+                   e=c('[pʰ tʰ kʰ]', '[p t k]', '[p]', '[p ~ ʊ̯]', '[t]',
+                       '[ɤ̯]', '[k]', 
+                       '[ɪ̯]', '[ʊ̯]', 'Ø'),
+                   f=rep('/', 10),
+                   g=c('SP', 'WP', 'SP', 'WP', 'SP', 'WP', 'SP',
+                       'WP, _ [-back, -high]', 'WP, _ [+back, -high]',
+                       'WP, _ [+high]'),
+                   h=c('*skalpere*', '*skalp*', '*købte*', '*købe*', '*validere*', '*valid*',
+                       '*bagte*', '*bage*', '*bagværk*', ''))
+colnames(grad) <- NULL
+grad
+```
+
+## Danish stop gradation: variation
+
+-   Stop gradation affected almost the entire Danish-speaking area, but the precise outcomes differed
+-   Thanks to a historically strong tradition of dialectology, this variability has long been well-described
+
+## Danish stop gradation: variation
+
+![](img/dialectatlas.png){width="400" fig-align="center"}
+
+::: aside
+@bennike1898
+:::
+
+## Danish stop gradation: variation in /b/
+
+![](figs/p-dev.png){width="400" fig-align="center"}
+
+::: aside
+@puggaardrode2023_diss
+:::
+
+## Danish stop gradation: variation in /g/
+
+![](figs/k-dev.png){width="400" fig-align="center"}
+
+::: aside
+@puggaardrode2023_diss
+:::
+
+## Danish stop gradation: variation in /d/
+
+![](figs/t-dev.png){width="400" fig-align="center"}
+
+::: aside
+@puggaardrode2023_diss
+:::
+
+## Danish stop gradation: variation
+
+```{r}
+#| fig-height: 4.8
+
+mapDK + annotate(geom='segment', x=11, y=55, 
+                     xend=11, yend=57.5,
+                     color='red', lwd=1.2, arrow=arrow(angle=20, ends='both')) +
+  annotate(geom='label', x=12.2, y=57.3, label='More sonorous', 
+           fontface='bold', color='red') + 
+  annotate(geom='label', x=12.2, y=55.2, label='Less sonorous',
+           fontface='bold', color='red') +
+  ggtitle('Outcomes of stop gradation')
+```
+
+## Research questions
+
+-   Broad RQ:
+
+    -   Are sound changes sensitive to the phonetic details of laryngeal contrast beyond broad descriptive features like 'aspiration' and 'true voice'?
+
+-   Narrow RQ:
+
+    -   Is the variation in stop gradation patterns in Jutland Danish limited to WP, or are there meaningful correlates in SP?
+
+## Hypotheses
+
+-   Stop gradation led to an increase in aperture almost across the board
+
+-   The outcomes of stop gradation were affected by the precise implementation of the laryngeal contrast
+
+    -   The degree of sonority is reflected in the 'phonetic sonority' of stops
+    -   I.e., more voicing, less aspiration = more sonorous
+
+## Hypotheses
+
+```{r}
+#| fig-height: 4.8
+
+mapDK + annotate(geom='segment', x=11, y=55, 
+                     xend=11, yend=57.5,
+                     color='red', lwd=1.2, arrow=arrow(angle=20, ends='both')) +
+  annotate(geom='label', x=12.2, y=57.3, label='More sonorous', 
+           fontface='bold', color='red') + 
+  annotate(geom='label', x=12.2, y=55.2, label='Less sonorous',
+           fontface='bold', color='red') +
+  ggtitle('Outcomes of stop gradation')
+```
+
+## Hypotheses
+
+```{r}
+#| fig-height: 4.8
+
+mapDK + annotate(geom='segment', x=11, y=55, 
+                     xend=11, yend=57.5,
+                     color='darkgreen', lwd=1.2, arrow=arrow(angle=20, ends='both')) +
+  annotate(geom='label', x=12.2, 57.3, label='Less aspiration\nin /p t k/', 
+           fontface='bold', color='darkgreen') +
+  annotate(geom='label', x=12.2, 56.8, label='More voicing\nin /b d g/', 
+           fontface='bold', color='darkgreen') +
+  annotate(geom='label', x=12.2, y=55.2, label='Less voicing\nin /b d g/',
+           fontface='bold', color='darkgreen') +
+  annotate(geom='label', x=12.2, y=55.7, label='More aspiration\nin /p t k/',
+           fontface='bold', color='darkgreen') +
+  ggtitle('Predictions')
+```
+
+## The data
+
+-   A bit of background
+
+    -   The past century has been very hard on regional variation in Denmark
+    -   The traditional dialects of Danish are mostly moribund or extinct
+
+-   Tape recordings were gathered from elderly dialect speakers in the early 1970s
+
+::: aside
+@arboeandersen1981; @kristiansen2003; @pedersen2003; @goldshtein2019; cf. @maegaard2019
+:::
+
+## The data
+
+-   The corpus consists of
+
+    -   525 sociolinguistic interviews
+    -   370 hours of speech data
+    -   Almost entirely unused...and un-annotated :-(
+
+## The data
+
+-   This study
+
+    -   213 different recordings
+
+    -   49 women, 164 men
+
+    -   Mean age = 77.4 years
+
+        -   I.e., this is roughly the same generation captured in the dialect maps of @bennike1898
+
+## The data
+
+```{r}
+#| fig-height: 4.8
+
+df <- read.csv('data/vot_voi.csv', sep=';')
+dia_polygon <- read.csv('data/polygons_dialectareas.csv', sep=';')
+
+locs <- data.frame(lat = unique(df$lat), 
+                   lon = unique(df$long))
+
+locs_map <- ggplot(locs) +
+  aes(x=lon, y=lat) +
+  geom_polygon(data=dia_polygon, aes(x=lat, y=long, group=dialect),
+               fill=NA, color='grey', lwd=0.6) +
+  coord_fixed(1.7) +
+  geom_point(size=2.5, alpha=0.5, col='red') +
+  theme(panel.border = element_blank(),
+        panel.background = element_rect(fill = "#FFFFFF", color = "#FFFFFF"),
+        axis.text.y = element_blank(), axis.text.x = element_blank(),
+        axis.title.y = element_blank(), axis.title.x = element_blank(),
+        axis.ticks = element_blank(), legend.background = element_blank(),
+        legend.title = element_blank(), legend.text = element_blank())
+
+locs_map
+```
+
+## Acoustic analysis
+
+-   First step: finding the stops
+
+    -   By...
+    -   ...listening through the recordings -\_-
+    -   And noting the rough locations of each stop until 50 /p t k/ tokens were found
+    -   Noting the locations of /b d g/ tokens in that same time span
+
+## Acoustic analysis
+
+```{r}
+bdg <- df %>% filter(sg == 'negsg')
+bdg_token_no <- bdg %>% 
+  filter(sg == 'negsg') %>%
+  group_by(stop) %>% 
+  summarize('Number of tokens' = formatC(n(), big.mark=',')) %>% 
+  mutate(Phoneme = paste0('/', stop, '/'),
+         .before='Number of tokens', .keep='unused') %>%
+  rbind(c('/b d g/ total', formatC(nrow(bdg), big.mark=',')))
+ptk <- df %>% filter(sg == 'possg')
+ptk %>%
+  mutate(stop = fct_relevel(stop, 't')) %>% 
+  mutate(stop = fct_relevel(stop, 'p')) %>% 
+  group_by(stop) %>% 
+  summarize('Number of tokens' = formatC(n(), big.mark=',')) %>% 
+  mutate(Phoneme = paste0('/', stop, '/'),
+         .before='Number of tokens', .keep='unused') %>%
+  rbind(c('/p t k/ total', formatC(nrow(ptk), big.mark=',')),
+        bdg_token_no)
+```
+
+## Acoustic analysis
+
+-   Positive voice onset time was measured manually in /p t k/
+
+## Acoustic analysis
+
+::: nonincremental
+-   Positive voice onset time was measured manually in /p t k/
+:::
+
+```{r}
+#| fig-height: 4
+
+library(praatpicture)
+
+praatpicture('snd/asp_annot.wav', frames=c('sound', 'TextGrid'), 
+             proportion=c(80, 20))
+```
+
+## Acoustic analysis: voiced or not voiced?
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| fig-height: 4
+
+praatpicture('snd/int_fv.wav', frames=c('sound', 'TextGrid'), 
+             proportion=c(80, 20))
+praatpicture('snd/pp_fv.wav', frames=c('sound', 'TextGrid'), 
+             proportion=c(80, 20))
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 4
+
+praatpicture('snd/int_nfv.wav', frames=c('sound', 'TextGrid'), 
+             proportion=c(80, 20))
+praatpicture('snd/pp_nfv.wav', frames=c('sound', 'TextGrid'), 
+             proportion=c(80, 20))
+```
+:::
+:::
+
+## Stats
+
+-   Generalized additive mixed models
+
+    -   Very useful for modeling non-linear effects
+    -   Omnipresent in linguistics in the past half decade
+
+## 
+
+![](img/gamm_ts.png){.absolute top="0" left="0" width="480"} ![](img/gamm_mri.png){.absolute top="0" right="0" width="350"}
+
+![](img/gamm_eeg.png){.absolute bottom="85" left="75" width="300"}
+
+![](img/gamm_spectrum.png){.absolute bottom="75" right="0" width="420"}
+
+::: aside
+@wieling2018; @voeten2019; @carignan2020; @puggaardrode2022_fosr
+:::
+
+## Stats
+
+::: nonincremental
+-   Generalized additive mixed models
+
+    -   Very useful for modeling non-linear effects
+    -   Omnipresent in linguistics in the past half decade
+
+-   In this case, **spatial** GAMMs
+:::
+
+## 
+
+![](img/gamm_geo.png){width="450" fig-align="center"}
+
+::: aside
+@wieling2011
+:::
+
+## Stats: model structure
+
+-   **Dependent variables**
+
+    -   Voice onset time
+
+        -   Scaled *t* distribution
+
+    -   Presence or absence of voicing
+
+        -   Binomial distribution
+
+## Stats: model structure
+
+-   Two-dimensional smooth modeling geographical coordinates
+
+-   **Independent variables**
+
+    -   Place of articulation
+    -   Stress
+    -   Speaker gender
+    -   Preceding boundary
+    -   Palatalization
+    -   Vowel features (roundness, backness, height)
+
+## Stats: model structure
+
+-   Independent variables were coded with sum or Helmert contrasts
+-   By-speaker **random slopes** for all independent variables
+-   Fitted in R with `mgcv`
+
+::: aside
+@wood2017_gam; @wood2022; @schad2020
+:::
+
+## Results: VOT
+
+```{r}
+load('mods/ptk_mod.Rda')
+
+gam_vot_summary <- summary(gam_vot, re.test=F)
+len <- length(gam_vot_summary$p.coef)
+
+var <- c('int', 
+         'velar',
+         'alvlab',
+         'stress',
+         'sex',
+         'pal',
+         'back',
+         'round',
+         'height_high',
+         'height_mid',
+         'boundary'
+)
+est <- gam_vot_summary$p.coef
+se <- gam_vot_summary$se[1:len]
+t <- gam_vot_summary$p.t
+p <- gam_vot_summary$p.pv
+vot <- data.frame(
+  var = var,
+  est = est,
+  se = se,
+  t = t,
+  p = p,
+  pos = c(1:11),
+  poslab = c('', 'velar', 'alveolar', 'stressed', 'male', 'palatalized', 
+             'non-back', 'rounded', 'high', 'mid', 'post-pausal'),
+  neglab = c('', 'non-velar', 'bilabial', 'unstressed', 'female', 
+             'non-palatalized', 'back', 'unrounded', 'non-high', 'low', 
+             'non-post-pausal')
+)
+
+rownames(vot) <- NULL
+colnames(vot)[3] <- 'se'
+colnames(vot)[4] <- 't'
+colnames(vot)[5] <- 'p'
+
+int <- vot[1,'est']
+
+plot(1, int, pch=19, ylab='Voice onset time (ms)', xaxt='n', xlab='',
+     xlim=c(0,11.5))
+#abline(h=c(40, 50, 60, 70), lty='dotted', col='lightgrey')
+abline(h=c(int-vot$se[1], int+vot$se[1]), lty='dotted')
+abline(h=c(int-(2*vot$se[1]), int+(2*vot$se[1])), lty='dotted', col='darkgrey')
+abline(h=c(int-(3*vot$se[1]), int+(3*vot$se[1])), lty='dotted', col='lightgrey')
+lines(x=c(1,1), y=c(int-vot$se[1], int+vot$se[1]))
+text(x=1, y=int, labels=expression(beta[0]), pos=2)
+
+for (i in 2:nrow(vot)) {
+  pos <- vot$pos[i] - 0.05
+  colsc <- 'blue'
+  if (vot$est[i] < 0)  colsc <- 'red'
+  points(pos, int+vot$est[i], pch=19, col=colsc)
+  lines(x=c(pos,pos), y=c(int+vot$est[i]-vot$se[i], int+vot$est[i]+vot$se[i]), col=colsc)
+  if (vot$est[i] > 0) {
+    text(x=pos, y=int+vot$est[i]+3, labels=vot$poslab[i], col=colsc)
+  } else {
+    text(x=pos, y=int+vot$est[i]-3, labels=vot$poslab[i], col=colsc)
+  }
+  pos <- vot$pos[i] + 0.05
+  colsc <- 'red'
+  if (vot$est[i] < 0) colsc <- 'blue'
+  points(pos, int-vot$est[i], pch=19, col=colsc)
+  lines(x=c(pos,pos), y=c(int-vot$est[i]+vot$se[i], int-vot$est[i]-vot$se[i]), col=colsc)
+  if (vot$est[i] > 0) {
+    text(x=pos, y=int-vot$est[i]-3, labels=vot$neglab[i], col=colsc)
+  } else {
+    text(x=pos, y=int-vot$est[i]+3, labels=vot$neglab[i], col=colsc)
+  }
+}
+
+lines(x=c(0,0.75), y=c(72,72), lty='dotted')
+text(x=0.85, y=72, labels=expression(beta[0]), pos=4)
+text(x=1.2, y=72, labels='±1SD', pos=4)
+lines(x=c(0,0.75), y=c(69,69), lty='dotted', col='darkgrey')
+text(x=0.85, y=69, labels=expression(beta[0]), pos=4, col='darkgrey')
+text(x=1.2, y=69, labels='±2SD', pos=4, col='darkgrey')
+lines(x=c(0,0.75), y=c(66,66), lty='dotted', col='lightgrey')
+text(x=0.85, y=66, labels=expression(beta[0]), pos=4, col='lightgrey')
+text(x=1.2, y=66, labels='±3SD', pos=4, col='lightgrey')
+```
+
+## Results: VOT
+
+```{r}
+gam_map_extract_fit <- function(mod, select=1, ci=NULL, sig_level=1) {
+  png('tmp')   #suppress actual plot
+  plot.df <- mgcv::plot.gam(mod, select=1, rug=F)
+  dev.off()
+  unlink('tmp', recursive=T)
+  plot.df <- plot.df[[select]]   #limit to the right smooth effect
+  plot.df$raw <- NULL
+  plot_data <- expand.grid(plot.df$x, plot.df$y)
+  plot_data$fit <- as.vector(plot.df$fit)
+  plot_data$se <- as.vector(plot.df$se)
+  plot_data$p <- 1 - pnorm(abs(plot_data$fit)/plot_data$se)
+  plot_data$alpha <- plot_data$p < sig_level
+  
+  if (is.null(ci)) {ci <- 95}
+  
+  cip <- 1-ci/100
+  plot_data$ci_lower <- plot_data$fit - qnorm(1-cip/2)*plot_data$se
+  plot_data$ci_upper <- plot_data$fit + qnorm(1-cip/2)*plot_data$se
+  
+  return(plot_data)
+}
+
+gam_map <- function(mod, poly_obj, select=1, sig_level=1, fill='fit', 
+                    legend_name='estimate', ...) {
+  p <- gam_map_extract_fit(mod, select, sig_level=sig_level)
+  ggplot(p, aes_string(x='Var1', y='Var2', fill = fill)) + 
+    geom_tile(alpha = p$alpha) +
+    scale_x_continuous(expand = c(0,0)) + 
+    scale_y_continuous(expand = c(0,0)) +
+    scale_fill_gradient2(low = 'red', mid = 'white', high = 'blue', 
+                         na.value='grey',
+                         name = legend_name, ...) +
+    coord_fixed(1.7) +   #needed for map to have proper dimensions
+    geom_polygon(data=poly_obj, aes(x=lat, y=long, group=dialect),
+                 fill=NA, color='black', inherit.aes=F) + 
+    theme_bw() +
+    theme(panel.border=element_blank(),
+          panel.grid.major=element_blank(),
+          panel.grid.minor=element_blank(),
+          axis.text.y=element_blank(),
+          axis.text.x=element_blank(),
+          axis.title.y=element_blank(),
+          axis.title.x=element_blank(),
+          axis.ticks=element_blank())
+}
+
+gam_map_ci <- function(mod, poly_obj, select=1, ci=95, legend_name='estimate') {
+  p <- gam_map_extract_fit(mod, select, ci=ci)
+  legend_lim <- c(min(p$ci_lower, na.rm = T), max(p$ci_upper, na.rm = T))
+  
+  fit <- gam_map(mod, poly_obj, select, legend_name=legend_name, 
+                 limits=legend_lim) + 
+    ggtitle('Fit') +
+    theme(plot.title = element_text(hjust = 0.5))   #centralize plot title
+  lower <- gam_map(mod, poly_obj, select, legend_name=legend_name, 
+                   limits=legend_lim, fill='ci_lower') +
+    ggtitle(paste0('Lower ', ci, '%\nCI boundary')) +
+    theme(plot.title = element_text(hjust = 0.5))
+  upper <- gam_map(mod, poly_obj, select, legend_name=legend_name,
+                   limits=legend_lim, fill='ci_upper') +
+    ggtitle(paste0('Upper ', ci, '%\nCI boundary')) +
+    theme(plot.title = element_text(hjust = 0.5))
+  
+  combined <- lower + fit + upper & theme(legend.position='right')
+  return(combined + patchwork::plot_layout(guides='collect'))
+}
+
+gam_map(gam_vot, dia_polygon, legend_name='Fitted VOT')
+```
+
+## Results: VOT
+
+```{r}
+#| eval: false
+
+dir.create('temp')
+
+sigs <- seq(0.32, 0.05, -0.01)
+
+j <- 0
+for (i in sigs) {
+  j <- j+1
+  gam_map(gam_vot, dia_polygon, sig_level=i, 
+          legend_name='Fitted VOT') +
+    ggtitle(paste('White when p <', 
+                   str_pad(i, 4, pad='0', side='right')))
+  ggsave(paste0('temp/tmp', str_pad(j, 2, pad='0'), '.png'), width=12, height=12, units='cm')
+}
+
+gifski::gifski(list.files('temp', full.names=TRUE), delay=0.2,
+               gif_file='img/gamm_vot_highp.gif', height=1200, width=1200, loop=F)
+
+unlink('temp', force=TRUE, recursive=TRUE)
+```
+
+![](img/gamm_vot_highp.gif){.absolute bottom="65" left="240" height="550"}
+
+## Results: VOT
+
+```{r}
+#| eval: false
+
+dir.create('temp')
+
+sigs <- seq(0.05, 0.001, -0.001)
+
+j <- 0
+for (i in sigs) {
+  j <- j+1
+  gam_map(gam_vot, dia_polygon, sig_level=i, 
+          legend_name='Fitted\nVOT') +
+    ggtitle(paste('White when p <', 
+                   str_pad(i, 4, pad='0', side='right')))
+  ggsave(paste0('temp/tmp', str_pad(j, 4, pad='0'), '.png'), width=12, height=12, units='cm')
+}
+
+gifski::gifski(list.files('temp', full.names=TRUE), delay=0.2,
+               gif_file='img/gamm_vot_lowp.gif', height=1200, width=1200, loop=F)
+
+unlink('temp', force=TRUE, recursive=TRUE)
+```
+
+![](img/gamm_vot_lowp.gif){.absolute bottom="65" left="240" height="550"}
+
+## Results: voicing
+
+```{r}
+load('mods/bdg_mod.Rda')
+
+gam_voi_summary <- summary(gam_voi, re.test=F)
+len <- length(gam_voi_summary$p.coef)
+
+var <- c('int', 
+         'velar',
+         'alvlab',
+         'stress',
+         'sex',
+         'round',
+         'back',
+         'boundary',
+         'height_high',
+         'height_mid',
+         'pal'
+)
+est <- gam_voi_summary$p.coef
+se <- gam_voi_summary$se[1:len]
+t <- gam_voi_summary$p.t
+p <- gam_voi_summary$p.pv
+voi <- data.frame(
+  var = var,
+  est = est,
+  se = se,
+  t = t,
+  p = p,
+  pos = c(1:11),
+  poslab = c('', 'velar', 'alveolar', 'stressed', 'male', 'rounded', 
+             'non-back', 'post-pausal', 'high', 'mid', 'palatalized'),
+  neglab = c('', 'non-velar', 'bilabial', 'unstressed', 'female', 
+             'unrounded', 'back', 'non-post-pausal', 'non-high', 'low', 
+             'non-palatalized')
+)
+
+rownames(voi) <- NULL
+colnames(voi)[3] <- 'se'
+colnames(voi)[4] <- 't'
+colnames(voi)[5] <- 'p'
+
+int <- voi[1,'est']
+
+plot(1, int, pch=19, ylab='Log odds of voicing', xaxt='n', xlab='',
+     xlim=c(0,11.5), ylim=c(-3.5, -0.5))
+abline(h=c(int-voi$se[1], int+voi$se[1]), lty='dotted')
+abline(h=c(int-(2*voi$se[1]), int+(2*voi$se[1])), lty='dotted', col='darkgrey')
+abline(h=c(int-(3*voi$se[1]), int+(3*voi$se[1])), lty='dotted', col='lightgrey')
+lines(x=c(1,1), y=c(int-voi$se[1], int+voi$se[1]))
+text(x=1, y=int, labels=expression(beta[0]), pos=2)
+
+for (i in 2:nrow(voi)) {
+  pos <- voi$pos[i] - 0.05
+  colsc <- 'blue'
+  if (voi$est[i] < 0) colsc <- 'red'
+  points(pos, int+voi$est[i], pch=19, col=colsc)
+  lines(x=c(pos,pos), y=c(int+voi$est[i]-voi$se[i], int+voi$est[i]+voi$se[i]), col=colsc)
+  if (voi$est[i] > 0) {
+    text(x=pos, y=int+voi$est[i]+0.25, labels=voi$poslab[i], col=colsc)
+  } else {
+    text(x=pos, y=int+voi$est[i]-0.25, labels=voi$poslab[i], col=colsc)
+  }
+  pos <- voi$pos[i] + 0.05
+  colsc <- 'red'
+  if (voi$est[i] < 0) colsc <- 'blue'
+  points(pos, int-voi$est[i], pch=19, col=colsc)
+  lines(x=c(pos,pos), y=c(int-voi$est[i]+voi$se[i], int-voi$est[i]-voi$se[i]), col=colsc)
+  if (voi$est[i] > 0) {
+    text(x=pos, y=int-voi$est[i]-0.25, labels=voi$neglab[i], col=colsc)
+  } else {
+    text(x=pos, y=int-voi$est[i]+0.25, labels=voi$neglab[i], col=colsc)
+  }
+}
+
+lines(x=c(0,0.75), y=c(-0.55, -0.55), lty='dotted')
+text(x=0.85, y=-0.55, labels=expression(beta[0]), pos=4)
+text(x=1.2, y=-0.55, labels='±1SD', pos=4)
+lines(x=c(0,0.75), y=c(-0.8, -0.8), lty='dotted', col='darkgrey')
+text(x=0.85, y=-0.8, labels=expression(beta[0]), pos=4, col='darkgrey')
+text(x=1.2, y=-0.8, labels='±2SD', pos=4, col='darkgrey')
+lines(x=c(0,0.75), y=c(-1.05,-1.05), lty='dotted', col='lightgrey')
+text(x=0.85, y=-1.05, labels=expression(beta[0]), pos=4, col='lightgrey')
+text(x=1.2, y=-1.05, labels='±3SD', pos=4, col='lightgrey')
+
+```
+
+## Results: voicing
+
+```{r}
+#| eval: false
+
+library(scales)
+
+gif <- data.frame(
+  alpha = seq(1, 0, length.out=50),
+  uplim = seq(-0.5, 2.2, length.out=50),
+  lolim = seq(-3.5, -6.2, length.out=50)
+)
+
+par(csi=0.8)
+
+render_voi <- function(a, u, l) {
+  int <- voi[1,'est']
+  plot(1, int, pch=19, ylab='Log odds of voicing', xaxt='n', xlab='',
+       xlim=c(0,11.5), ylim=c(l, u))
+  abline(h=c(int-voi$se[1], int+voi$se[1]), lty='dotted')
+  abline(h=c(int-(2*voi$se[1]), int+(2*voi$se[1])), lty='dotted', col='darkgrey')
+  abline(h=c(int-(3*voi$se[1]), int+(3*voi$se[1])), lty='dotted', col='lightgrey')
+  lines(x=c(1,1), y=c(int-voi$se[1], int+voi$se[1]))
+  text(x=1, y=int, labels=expression(beta[0]), pos=2)
+  
+  for (i in 2:nrow(voi)) {
+    pos <- voi$pos[i] - 0.05
+    colsc <- 'blue'
+    if (voi$est[i] < 0) colsc <- 'red'
+    points(pos, int+voi$est[i], pch=19, col=colsc)
+    lines(x=c(pos,pos), y=c(int+voi$est[i]-voi$se[i], int+voi$est[i]+voi$se[i]), col=colsc)
+    if (voi$est[i] > 0) {
+     text(x=pos, y=int+voi$est[i]+0.25, labels=voi$poslab[i], col=alpha(colsc, a))
+    } else {
+     text(x=pos, y=int+voi$est[i]-0.25, labels=voi$poslab[i], col=alpha(colsc, a))
+    }
+    pos <- voi$pos[i] + 0.05
+    colsc <- 'red'
+    if (voi$est[i] < 0) colsc <- 'blue'
+    points(pos, int-voi$est[i], pch=19, col=colsc)
+    lines(x=c(pos,pos), y=c(int-voi$est[i]+voi$se[i], int-voi$est[i]-voi$se[i]), col=colsc)
+    if (voi$est[i] > 0) {
+     text(x=pos, y=int-voi$est[i]-0.25, labels=voi$neglab[i], col=alpha(colsc, a))
+    } else {
+     text(x=pos, y=int-voi$est[i]+0.25, labels=voi$neglab[i], col=alpha(colsc, a))
+    }
+  }
+  
+  text(x=8, y=int-voi$est[8]+0.35, labels='non-post-pausal', col='blue')
+  text(x=8, y=int+voi$est[8]-0.35, labels='post-pausal', col='red')
+  
+  lines(x=c(0,0.75), y=c(-0.55, -0.55), lty='dotted', col=alpha('black', a))
+  text(x=0.85, y=-0.55, labels=expression(beta[0]), pos=4, col=alpha('black', a))
+  text(x=1.2, y=-0.55, labels='±1SD', pos=4, col=alpha('black', a))
+  lines(x=c(0,0.75), y=c(-0.8, -0.8), lty='dotted', col=alpha('darkgrey', a))
+  text(x=0.85, y=-0.8, labels=expression(beta[0]), pos=4, col=alpha('darkgrey', a))
+  text(x=1.2, y=-0.8, labels='±2SD', pos=4, col=alpha('darkgrey', a))
+  lines(x=c(0,0.75), y=c(-1.05,-1.05), lty='dotted', col=alpha('lightgrey', a))
+  text(x=0.85, y=-1.05, labels=expression(beta[0]), pos=4, col=alpha('lightgrey', a))
+  text(x=1.2, y=-1.05, labels='±3SD', pos=4, col=alpha('lightgrey', a))
+}
+
+gifski::save_gif(for (i in 1:nrow(gif)) {
+  render_voi(gif$alpha[i], gif$uplim[i], gif$lolim[i])
+  print(paste(i, 'out of', nrow(gif)))
+}, gif_file='animation.gif', delay=1/20, loop=FALSE, progress=TRUE, width=2200, height=1000, res=200)
+```
+
+![](img/voizoom.gif){.absolute bottom="60" left="25" height="525"}
+
+## Results: voicing
+
+```{r}
+gam_map(gam_voi, dia_polygon, legend_name='Fitted log\nlikelihood of\nvoicing')
+```
+
+## Results: voicing
+
+```{r}
+#| eval: false
+
+dir.create('temp')
+
+sigs <- seq(0.32, 0.05, -0.01)
+
+j <- 0
+for (i in sigs) {
+  j <- j+1
+  gam_map(gam_voi, dia_polygon, sig_level=i, 
+          legend_name='Fitted log\nlikelihood of\nvoicing') +
+    ggtitle(paste('White when p <', 
+                   str_pad(i, 4, pad='0', side='right')))
+  ggsave(paste0('temp/tmp', str_pad(j, 2, pad='0'), '.png'), width=12, height=12, units='cm')
+}
+
+gifski::gifski(list.files('temp', full.names=TRUE), delay=0.2,
+               gif_file='img/gamm_voi_highp.gif', height=1200, width=1200, loop=F)
+
+unlink('temp', force=TRUE, recursive=TRUE)
+```
+
+![](img/gamm_voi_highp.gif){.absolute bottom="57" left="250" height="550"}
+
+## Results: voicing
+
+```{r}
+#| eval: false
+
+dir.create('temp')
+
+sigs <- seq(0.05, 0.001, -0.001)
+
+j <- 0
+for (i in sigs) {
+  j <- j+1
+  gam_map(gam_voi, dia_polygon, sig_level=i, 
+          legend_name='Fitted log\nlikelihood of\nvoicing') +
+    ggtitle(paste('White when p <', 
+                   str_pad(i, 4, pad='0', side='right')))
+  ggsave(paste0('temp/tmp', str_pad(j, 4, pad='0'), '.png'), width=12, height=12, units='cm')
+}
+
+gifski::gifski(list.files('temp', full.names=TRUE), delay=0.2,
+               gif_file='img/gamm_voi_lowp.gif', height=1200, width=1200, loop=F)
+
+unlink('temp', force=TRUE, recursive=TRUE)
+```
+
+![](img/gamm_voi_lowp.gif){.absolute bottom="57" left="250" height="550"}
+
+## Discussion: regional variation
+
+-   In MSD, voicelessness in /b d g/ is maintained with glottal spreading
+
+    -   This serves to block intervocalic voicing
+    -   It is unlikely that (Northern) Jutlandic varieties have this gesture
+    -   For some speakers, voicing is even found in absolute initial position, which requires extra effort
+
+::: aside
+@fischerjorgensen1974; @hutters1985; @sole2018; @puggaardrode2022_voicing
+:::
+
+## Discussion: regional variation
+
+-   The observed patterns suggest that stop gradation = increase in aperture in /b d g/
+
+    -   If /b d g/ are voiced at high rates, the result should be a voiced fricative or an approximant
+
+    -   If /b d g/ are largely voiceless, the results should be a voiceless fricative
+
+        -   ...and we might expect increased prominence of aspiration in /p t k/
+
+## Discussion: regional variation
+
+```{r}
+#| fig-height: 4.8
+
+mapDK + annotate(geom='segment', x=11, y=55, 
+                     xend=11, yend=57.5,
+                     color='red', lwd=1.2, arrow=arrow(angle=20, ends='both')) +
+  annotate(geom='label', x=12.2, y=57.3, label='More sonorous', 
+           fontface='bold', color='red') + 
+  annotate(geom='label', x=12.2, y=55.2, label='Less sonorous',
+           fontface='bold', color='red') +
+  ggtitle('Outcomes of stop gradation')
+```
+
+## Discussion: regional variation
+
+```{r}
+#| fig-height: 4.8
+
+mapDK + annotate(geom='segment', x=11, y=55, 
+                     xend=11, yend=57.5,
+                     color='darkgreen', lwd=1.2, arrow=arrow(angle=20, ends='both')) +
+  annotate(geom='label', x=12.2, 57.3, label='Less aspiration\nin /p t k/', 
+           fontface='bold', color='darkgreen') +
+  annotate(geom='label', x=12.2, 56.8, label='More voicing\nin /b d g/', 
+           fontface='bold', color='darkgreen') +
+  annotate(geom='label', x=12.2, y=55.2, label='Less voicing\nin /b d g/',
+           fontface='bold', color='darkgreen') +
+  annotate(geom='label', x=12.2, y=55.7, label='More aspiration\nin /p t k/',
+           fontface='bold', color='darkgreen') +
+  ggtitle('Predictions')
+```
+
+## Discussion: Modern Standard Danish
+
+-   MSD provides a counterexample!
+
+    -   Laryngeal contrast is highly aspiration-oriented
+    -   Stop gradation outcomes is highly sonorous
+    -   Why?
+
+## Discussion: Modern Standard Danish
+
+-   Contrast in MSD used to be more voicing-oriented
+
+    -   More voicing during the first stages of stop gradation
+    -   Subsequent drift towards more aspiration, less voicing in SP
+    -   This severed any synchronic connection between SP and WP allophones
+    -   Jutland stop gradation has more hallmarks of an active phonological process
+
+## Conclusion
+
+-   Uncovered systematic, highly gradient patterns of variability in VOT and voicing rates in Jutland Danish
+
+-   These patterns have direct parallels in the outcome of stop gradation in *other prosodic positions*
+
+-   This suggests that fine phonetic detail directly impacts sound change/phonological processes
+
+    -   Broadly defined features are insufficient!
+
+## Tak for opmærksomheden! {.smaller}
+
+::: columns
+::: {.column width="40%"}
+![](img/cat.jpg){height="450" fig-align="center"}
+:::
+
+::: {.column width="60%"}
+::: {.nonincremental}
+[rpuggaardrode.github.io](https://rpuggaardrode.github.io) <br>
+[r.puggaard\@phonetik.uni-muenchen.de](mailto:r.puggaard@phonetik.uni-muenchen.de) <br>
+[\@rpuggaardrode](https://twitter.com/RPuggaardRode)
+:::
+:::
+:::
+
+
+## References {.smaller}
