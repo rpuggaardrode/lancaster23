@@ -1,0 +1,162 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 4.23210937500002 
+tiers? <exists> 
+size = 3 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "phone" 
+        xmin = 0 
+        xmax = 4.23210937500002 
+        intervals: size = 25 
+        intervals [1]:
+            xmin = 0 
+            xmax = 1.7187500021e-05 
+            text = "" 
+        intervals [2]:
+            xmin = 1.7187500021e-05 
+            xmax = 0.830017187500005 
+            text = "s" 
+        intervals [3]:
+            xmin = 0.830017187500005 
+            xmax = 0.990017187500001 
+            text = "ˈʌ" 
+        intervals [4]:
+            xmin = 0.990017187500001 
+            xmax = 1.0500171875 
+            text = "n̩" 
+        intervals [5]:
+            xmin = 1.0500171875 
+            xmax = 1.14262062949641 
+            text = "s" 
+        intervals [6]:
+            xmin = 1.14262062949641 
+            xmax = 1.22001718750002 
+            text = "ˈæː" 
+        intervals [7]:
+            xmin = 1.22001718750002 
+            xmax = 1.2700171875 
+            text = "ə" 
+        intervals [8]:
+            xmin = 1.2700171875 
+            xmax = 1.43671639539821 
+            text = "p" 
+        intervals [9]:
+            xmin = 1.43671639539821 
+            xmax = 1.593077310936 
+            text = "ˈi:" 
+        intervals [10]:
+            xmin = 1.593077310936 
+            xmax = 1.69895178666064 
+            text = "lə" 
+        intervals [11]:
+            xmin = 1.69895178666064 
+            xmax = 1.77492652618528 
+            text = "g" 
+        intervals [12]:
+            xmin = 1.77492652618528 
+            xmax = 1.85001718750002 
+            text = "ˈæ" 
+        intervals [13]:
+            xmin = 1.85001718750002 
+            xmax = 1.9000171875 
+            text = "n" 
+        intervals [14]:
+            xmin = 1.9000171875 
+            xmax = 1.9600171875 
+            text = "s" 
+        intervals [15]:
+            xmin = 1.9600171875 
+            xmax = 2.04001718750001 
+            text = "g" 
+        intervals [16]:
+            xmin = 2.04001718750001 
+            xmax = 2.07001718750001 
+            text = "ə" 
+        intervals [17]:
+            xmin = 2.07001718750001 
+            xmax = 2.1500171875 
+            text = "l" 
+        intervals [18]:
+            xmin = 2.1500171875 
+            xmax = 2.22001718750002 
+            text = "ˈɑ" 
+        intervals [19]:
+            xmin = 2.22001718750002 
+            xmax = 2.29001718750001 
+            text = "ŋ" 
+        intervals [20]:
+            xmin = 2.29001718750001 
+            xmax = 2.34001718750002 
+            text = "s" 
+        intervals [21]:
+            xmin = 2.34001718750002 
+            xmax = 2.44001718750002 
+            text = "ˌʌˀ" 
+        intervals [22]:
+            xmin = 2.44001718750002 
+            xmax = 2.51001718750001 
+            text = "m" 
+        intervals [23]:
+            xmin = 2.51001718750001 
+            xmax = 2.60001718750002 
+            text = "d" 
+        intervals [24]:
+            xmin = 2.60001718750002 
+            xmax = 4.2100171875 
+            text = "sp" 
+        intervals [25]:
+            xmin = 4.2100171875 
+            xmax = 4.23210937500002 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "word" 
+        xmin = 0 
+        xmax = 4.23210937500002 
+        intervals: size = 8 
+        intervals [1]:
+            xmin = 0 
+            xmax = 1.7187500021e-05 
+            text = "" 
+        intervals [2]:
+            xmin = 1.7187500021e-05 
+            xmax = 0.990017187500001 
+            text = "så" 
+        intervals [3]:
+            xmin = 0.990017187500001 
+            xmax = 1.0500171875 
+            text = "han" 
+        intervals [4]:
+            xmin = 1.0500171875 
+            xmax = 1.2700171875 
+            text = "sagde" 
+        intervals [5]:
+            xmin = 1.2700171875 
+            xmax = 1.69895178666064 
+            text = "pile" 
+        intervals [6]:
+            xmin = 1.69895178666064 
+            xmax = 2.07001718750001 
+            text = "ganske" 
+        intervals [7]:
+            xmin = 2.07001718750001 
+            xmax = 2.60001718750002 
+            text = "langsomt" 
+        intervals [8]:
+            xmin = 2.60001718750002 
+            xmax = 4.23210937500002 
+            text = "" 
+    item [3]:
+        class = "IntervalTier" 
+        name = "trans" 
+        xmin = 0 
+        xmax = 4.23210937500002 
+        intervals: size = 1 
+        intervals [1]:
+            xmin = 0 
+            xmax = 4.23210937500002 
+            text = "så han sagde pile ganske langsomt." 

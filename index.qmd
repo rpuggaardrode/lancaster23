@@ -80,7 +80,7 @@ csl: css/journal-of-linguistics.csl
 
     -   Regressive voicing assimilation common in 'true voice' languages
     -   Progressive aspiration assimilation common in 'aspiration' languages
-    -   Debuccalization found in 'aspiration' languages
+    -   Debuccalization to [h] found in 'aspiration' languages
 
 -   Does phonology care about anything smaller?
 
@@ -94,6 +94,8 @@ csl: css/journal-of-linguistics.csl
 
     -   Velar palatalization before front vowels is the result of small differences in burst noise characteristics
     -   Lenition predominantly targets codas because word-final information is more contextually predictable, and as such, hypoarticulated
+    
+-   Difficult to test though!
 
 ::: aside
 @lindblom1990; @ohala1992; @guion1998; @hall2018; @wedel2019
@@ -223,9 +225,9 @@ mapDK + annotate(geom='label', x=12.3, y=55.4, label='Copenhagen')
 
 ## Danish stop gradation
 
--   Danish phonology makes reference to **strong** and **weak** prosodic positiosn
+-   Danish phonology makes reference to **strong** and **weak** prosodic positions
 
-    -   **Strong** positions (SP) are onsets before a full vowels
+    -   **Strong** positions (SP) are onsets before a full vowel
     -   **Weak** positions (WP) are codas and onsets before a neutral vowel, i.e. \[ə\] or \[ɐ\], as well as \[i\] in some morphemes
 
 ::: aside
@@ -236,8 +238,8 @@ mapDK + annotate(geom='label', x=12.3, y=55.4, label='Copenhagen')
 
 -   Modern Standard Danish (MSD) shows alternations between
 
-    -   Aspirated stops in SP, unaspirated stops in WP
-    -   Unaspirated stops in SP, semivowels in WP
+    -   aspirated stops in SP, unaspirated stops in WP
+    -   unaspirated stops in SP, semivowels in WP
 
 -   This is often interpreted as an active phonological process
 
@@ -333,7 +335,7 @@ mapDK + annotate(geom='segment', x=11, y=55,
 
 -   The outcomes of stop gradation were affected by the precise implementation of the laryngeal contrast
 
-    -   The degree of sonority is reflected in the 'phonetic sonority' of stops
+    -   The degree of sonority in WP is reflected in the 'phonetic sonority' of stops
     -   I.e., more voicing, less aspiration = more sonorous
 
 ## Hypotheses
@@ -516,9 +518,29 @@ praatpicture('snd/pp_nfv.wav', frames=c('sound', 'TextGrid'),
 
 ## 
 
-![](img/gamm_ts.png){.absolute top="0" left="0" width="480"} ![](img/gamm_mri.png){.absolute top="0" right="0" width="350"}
+![](img/gamm_ts.png){.absolute top="0" left="0" width="480"} 
+
+##
+
+![](img/gamm_ts.png){.absolute top="0" left="0" width="480"} 
 
 ![](img/gamm_eeg.png){.absolute bottom="85" left="75" width="300"}
+
+##
+
+![](img/gamm_ts.png){.absolute top="0" left="0" width="480"} 
+
+![](img/gamm_eeg.png){.absolute bottom="85" left="75" width="300"}
+
+![](img/gamm_mri.png){.absolute top="0" right="0" width="350"}
+
+##
+
+![](img/gamm_ts.png){.absolute top="0" left="0" width="480"} 
+
+![](img/gamm_eeg.png){.absolute bottom="85" left="75" width="300"}
+
+![](img/gamm_mri.png){.absolute top="0" right="0" width="350"}
 
 ![](img/gamm_spectrum.png){.absolute bottom="75" right="0" width="420"}
 
@@ -659,13 +681,13 @@ for (i in 2:nrow(vot)) {
 
 lines(x=c(0,0.75), y=c(72,72), lty='dotted')
 text(x=0.85, y=72, labels=expression(beta[0]), pos=4)
-text(x=1.2, y=72, labels='±1SD', pos=4)
+text(x=1.2, y=72, labels='±1SE', pos=4)
 lines(x=c(0,0.75), y=c(69,69), lty='dotted', col='darkgrey')
 text(x=0.85, y=69, labels=expression(beta[0]), pos=4, col='darkgrey')
-text(x=1.2, y=69, labels='±2SD', pos=4, col='darkgrey')
+text(x=1.2, y=69, labels='±2SE', pos=4, col='darkgrey')
 lines(x=c(0,0.75), y=c(66,66), lty='dotted', col='lightgrey')
 text(x=0.85, y=66, labels=expression(beta[0]), pos=4, col='lightgrey')
-text(x=1.2, y=66, labels='±3SD', pos=4, col='lightgrey')
+text(x=1.2, y=66, labels='±3SE', pos=4, col='lightgrey')
 ```
 
 ## Results: VOT
@@ -873,13 +895,13 @@ for (i in 2:nrow(voi)) {
 
 lines(x=c(0,0.75), y=c(-0.55, -0.55), lty='dotted')
 text(x=0.85, y=-0.55, labels=expression(beta[0]), pos=4)
-text(x=1.2, y=-0.55, labels='±1SD', pos=4)
+text(x=1.2, y=-0.55, labels='±1SE', pos=4)
 lines(x=c(0,0.75), y=c(-0.8, -0.8), lty='dotted', col='darkgrey')
 text(x=0.85, y=-0.8, labels=expression(beta[0]), pos=4, col='darkgrey')
-text(x=1.2, y=-0.8, labels='±2SD', pos=4, col='darkgrey')
+text(x=1.2, y=-0.8, labels='±2SE', pos=4, col='darkgrey')
 lines(x=c(0,0.75), y=c(-1.05,-1.05), lty='dotted', col='lightgrey')
 text(x=0.85, y=-1.05, labels=expression(beta[0]), pos=4, col='lightgrey')
-text(x=1.2, y=-1.05, labels='±3SD', pos=4, col='lightgrey')
+text(x=1.2, y=-1.05, labels='±3SE', pos=4, col='lightgrey')
 
 ```
 
@@ -1088,7 +1110,7 @@ mapDK + annotate(geom='segment', x=11, y=55,
 
 ## Conclusion
 
--   Uncovered systematic, highly gradient patterns of variability in VOT and voicing rates in Jutland Danish
+-   Uncovered systematic, highly gradient patterns of covariability in VOT and voicing rates in Jutland Danish
 
 -   These patterns have direct parallels in the outcome of stop gradation in *other prosodic positions*
 
@@ -1107,7 +1129,9 @@ mapDK + annotate(geom='segment', x=11, y=55,
 ::: {.nonincremental}
 [rpuggaardrode.github.io](https://rpuggaardrode.github.io) <br>
 [r.puggaard\@phonetik.uni-muenchen.de](mailto:r.puggaard@phonetik.uni-muenchen.de) <br>
-[\@rpuggaardrode](https://twitter.com/RPuggaardRode)
+[\@rpuggaardrode](https://twitter.com/RPuggaardRode) <br> <br>
+
+These slides are available at [rpuggaardrode.github.io/lancaster23](https://rpuggaardrode.github.io/lancaster23)
 :::
 :::
 :::
